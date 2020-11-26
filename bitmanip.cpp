@@ -10,6 +10,7 @@ int setBit(int n, int pos){
 }
 
 int main(){
+    cout<<getBit(5,2)<<endl;
     cout<<setBit(5,1);
     return 0;
 }
