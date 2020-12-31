@@ -29,6 +29,7 @@ int main(){
     int n,p;
 
     cin>>n>>p;
+    
     cout<<factorial(n)<<endl;
     cout<<power(n,p)<<endl;
 
