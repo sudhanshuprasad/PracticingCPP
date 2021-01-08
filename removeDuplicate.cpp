@@ -16,5 +16,5 @@ string removeDuplicate(string s){
 }
 
 int main(){
-    cout<<removeDuplicate("aaaaooooonnnnnnnnnaaaaaa");
+    cout<<removeDuplicate("aaaaooooonnnnnnnnnaaaaaattttcccaaaaEWWWWy");
 }
