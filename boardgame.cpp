@@ -19,4 +19,5 @@ int countPath(int s,int e){
 
 int main(){
     cout<<countPath(0,3);
+    return 0;
 }
