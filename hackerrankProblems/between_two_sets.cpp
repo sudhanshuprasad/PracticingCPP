@@ -14,110 +14,64 @@ using namespace std;
 
 int min(vector<int> a){
     int min=a[0];
-    // cout<<min<<" ";
-    // cout<<b.size()<<" ";
     for(int i=1;i<a.size();i++){
         if(min>a[i]){
-            // cout<<min<<" ";
             min=a[i];
         }
     }
     return min;
 }
 
-int min(vector<int> a, vector<int> b){
-    int min=a[0];
-    // cout<<min<<" ";
-    // cout<<b.size()<<" ";
-    for(int i=1;i<a.size();i++){
-        if(min>a[i]){
-            // cout<<min<<" ";
-            min=a[i];
-        }
-    }
-    // cout<<min<<" ";
-    for(int i=0;i<b.size();i++){
-        if(min>b[i]){
-            min=b[i];
-        }
-    }
-    // cout<<min<<" ";    
-    return min;
-}
-int max(vector<int> a, vector<int> b){
+int max(vector<int> a){
     int max=a[0];
-    // cout<<min<<" ";
     for(int i=1;i<a.size();i++){
         if(max<a[i]){
-            // cout<<min<<" ";
             max=a[i];
         }
     }
-    // cout<<min<<" ";
-    for(int i=0;i<b.size();i++){
-        if(max<b[i]){
-            max=b[i];
-        }
-    }
-    // cout<<max<<" ";    
     return max;
 }
 
-int getTotalX(vector<int> a, vector<int> b) {
-    int count=0;
-    // max(a,b);
-    // for(int i=min(a,b);i<max(a,b);i++){
-    //     for(int j=0;j<=0;j++){
-    //         bool is_a=1, is_b=1;
-    //         if(i%a[j]!=0){
-    //             is_a=0;
-    //             cout<<"i="<<i<<" "<<"a"<<j<<"="<<a[j]<<" "<<"\t"; 
-    //             // cout<<"\n";
-    //         }
-    //         if(i%b[j]!=0){
-    //             is_b=0;
-    //             cout<<"b"<<j<<"="<<b[j]<<"\t";
-                
-    //         }
-    //         if(is_a==1 && is_b==1){
-    //             count++;
-    //             cout<<"count="<<count<<"\n";
-    //         }cout<<"\n";
-    //     }
-    // }
+int gcd_of_two_num(int a, int b){
+    if(b==0){
+        return a;
+    }
+    return gcd_of_two_num(b,a%b);
+}
 
-    int i=min(a,b);
-    while(i<max(a,b)){
-        // int j=0;
-        bool check_i=1;// check_b=1;
-        for(int j=0;j<a.size();j++){
-            if(i%a[j]!=0){
-                check_i=0;
-                cout<<i<<"%"<<"a"<<j<<endl;
-            }
-            // j++;
-        }
-        // j=0;
-        for(int j=0;j<a.size();j++){
-            if(i%b[j]!=0){
-                check_i=0;
-                cout<<i<<"%"<<"b"<<j<<endl;
-            }
-            // j++;
-        }
-        cout<<"check";
-        if(check_i){
+int gcd(vector<int> n){
+    int gcd=n[0];
+    for (int i = 1; i < n.size(); i++){
+        gcd=gcd_of_two_num(n[i],gcd);
+    }
+    return gcd;
+}
+
+int lcm(vector<int> n){
+    int lcm=n[0];
+    int gcd=n[0];
+    for (int i = 1; i < n.size(); i++){
+        gcd=gcd_of_two_num(n[i], lcm);
+        lcm=(lcm*n[i]/gcd);
+    }
+    
+    return lcm;
+}
+
+int getTotalX(vector<int> a, vector<int> b) {
+    int count=0,i=2;
+    int start=lcm(a),end=gcd(b);
+    // cout<<start<<endl;
+    // cout<<end<<endl; 
+    while (start*i<end){
+        // cout<<(start*i)%end<<endl;
+        if ((start*i)%end==0){
             count++;
-            cout<<"count="<<count;
         }
-        // if(check_b){
-        //     count++;
-        //     cout<<"count="<<count;
-        // }
-        cout<<endl;
+        // cout<<"hello";    
         i++;
     }
-
+    
     return count;
 }
 
@@ -125,8 +79,6 @@ int main()
 {
     vector<int> a={3,4};
     vector<int> b={24,48};
-
-    // cout<<"hello";
+    // cout<<lcm(a);
     cout<<getTotalX(a,b);
 }
- 
