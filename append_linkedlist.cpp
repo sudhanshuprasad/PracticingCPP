@@ -114,7 +114,7 @@ int main(){
     
     display(head);
 
-    append(head,1);
+    append(head,4);
     display(head);
     
     return 0;
