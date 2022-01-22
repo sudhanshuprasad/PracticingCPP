@@ -83,7 +83,7 @@ bool isCyclic(node* &head){
 
 int main(){
     node* head1=NULL;
-    // node* head2=NULL;
+    node*head2=NULL;
 
     insertAtTail(head1, 1);
     insertAtTail(head1, 2);
@@ -97,11 +97,12 @@ int main(){
 
     cout<<isCyclic(head1);
 
-    // insertAtTail(head2, 6);
-    // insertAtTail(head2, 7);
-    // insertAtTail(head2, 8);
-    // insertAtTail(head2, 9);
-    // insertAtTail(head2, 10);
-    // display(head2);
+    insertAtTail(head2, 6);
+    insertAtTail(head2, 7);
+    insertAtTail(head2, 8);
+    insertAtTail(head2, 9);
+    insertAtTail(head2, 10);
+    display(head2);
 
+    cout<<isCyclic(head1);
 }
